@@ -5,28 +5,92 @@
     <meta name="viewport" content="width=1024"/>
     <meta name="description" content="A quick introduction to CSS Selectors"/>
     <meta name="author" content="Bill Hannah"/>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic"
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic|Inconsolata:400"
           rel="stylesheet"/>
-    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'/>
+    <!--<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'/>               -->
     <link href="css/impress-demo.css" rel="stylesheet"/>
     <link rel="shortcut icon" href="favicon.png"/>
 
 </head>
 <body class="impress-not-supported">
 <div id="impress">
-    <div id="overview" class="step" data-scale="5"></div>
-    <div id="title" class="step" data-x="0" data-y="-800">
+    <div id="title" class="step" data-x="-1500" data-y="-1600">
         <h1>CSS Selectors</h1>
     </div>
-    <div id="intro" class="step slide" data-x="0" data-y="0">
-        <q>Q. Is there a way to target either a specific node in an HTML document?</q>
-        <q>A. Yes - CSS Selectors</q>
+    <div id="intro" class="step slide" data-x="-1500" data-y="-800">
+        <q>CSS Selectors are all about finding either a group of elements, or a single element</q>
     </div>
-    <div id="intro2" class="step slide" data-x="1000" data-y="0">
-        <q>Q. Is there a way to target a group of HTML elements with similar properties?</q>
-        <q>A. Yes - CSS Selectors</q>
-
+    <div id="basic1" class="step slide" data-x="-500" data-y="-800">
+        <q>There are 4 basic types of selectors:</q>
+        <ul>
+            <li>The Universal Selector (*)</li>
+            <li>The TAG selector (div)</li>
+            <li>The CLASS selector (.classname)</li>
+            <li>And the ID selector (#identifier)</li>
+        </ul>
     </div>
+    <div id="multiselect" class="step slide" data-x="500" data-y="-800">
+        <q>A single selector can match multiple elements</q>
+    </div>
+    <div id="multiselect-example" class="step slide" data-x="1500" data-y="-800">
+        <h2>Selecting multiple elements</h2>
+        <p>Selector:</p>
+        <code>
+            <span class="color1">.className</span>
+        </code>
+        <p>HTML:</p>
+        <code>
+            <div>&hellip;</div>
+            <div>&lt;div&gt;</div>
+            <div>&nbsp;&nbsp;<span class="color1">&lt;div class="myClass"&gt;[content]&lt;/div&gt;</span></div>
+            <div>&nbsp;&nbsp;<span class="color1">&lt;div id="myID" class="myClass"&gt;[content]&lt;/div&gt;</span></div>
+            <div>&nbsp;&nbsp;<span class="color1">&lt;div class="myClass"&gt;[content]&lt;/div&gt;</span></div>
+            <div>&lt;/div&gt;</div>
+            <div>&hellip;</div>
+        </code>
+    </div>
+    <div id="basic2" class="step slide" data-x="-1500" data-y="0">
+        <q>You can combine these basic selectors into a single selector</q>
+    </div>
+    <div id="combining" class="step slide" data-x="-500" data-y="0">
+        <h2>Combining selectors</h2>
+        <p>Selector:</p>
+        <code>
+            <span class="color1">div#myID.myClass</span>
+        </code>
+        <p>HTML:</p>
+        <code>
+            <div>&hellip;</div>
+            <div>&lt;div&gt;</div>
+            <div>&nbsp;&nbsp;&lt;div class="myClass"&gt;[content]&lt;/div&gt;</div>
+            <div>&nbsp;&nbsp;<span class="color1">&lt;div id="myID" class="myClass"&gt;[content]&lt;/div&gt;</span></div>
+            <div>&nbsp;&nbsp;&lt;div class="myClass"&gt;[content]&lt;/div&gt;</div>
+            <div>&lt;/div&gt;</div>
+            <div>&hellip;</div>
+        </code>
+    </div>
+    <div id="specificity" class="step slide" data-x="500" data-y="0">
+        <q>However, be careful not to be add too much to your selector</q>
+    </div>
+    <div id="specifivity2" class="step slide" data-x="1500" data-y="0">
+        <h2>Both these selectors will match the same element because there can only be 1 id of myId in a document</h2>
+        <p>Selectors:</p>
+        <code>
+            <div><span class="color1">div#myID.myClass</span></div>
+            <div><span class="color1">#myId</span></div>
+        </code>
+        <p>HTML:</p>
+        <code>
+            <div>&hellip;</div>
+            <div>&lt;div&gt;</div>
+            <div>&nbsp;&nbsp;&lt;div class="myClass"&gt;[content]&lt;/div&gt;</div>
+            <div>&nbsp;&nbsp;<span class="color1">&lt;div id="myID" class="myClass"&gt;[content]&lt;/div&gt;</span></div>
+            <div>&nbsp;&nbsp;&lt;div class="myClass"&gt;[content]&lt;/div&gt;</div>
+            <div>&lt;/div&gt;</div>
+            <div>&hellip;</div>
+        </code>
+    </div>
+    <div id="overview" class="step" data-scale="5"></div>
 </div>
 <script src="js/impress.js"></script>
 <script>impress().init();</script>

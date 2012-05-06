@@ -701,3 +701,20 @@ a:focus {
     Thanks for reading. I hope you enjoyed it at least as much as I enjoyed writing it
     for you.
 */
+
+code {
+    font: 24px/1em Inconsolata,  monospace;
+}
+
+ul li {
+    margin: 0 0 1em 1.2em;
+    list-style: disc;
+}
+
+.color1 {
+    background: rgba(255,255,128, .8);
+}
+
+h2 { font: 28px/1em 'PT Serif'; margin: 0 0 1em;}
+
+p { font: 24px/1em 'PT Sans'; margin: .5em 0;}
