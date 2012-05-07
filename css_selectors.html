@@ -8,19 +8,20 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic|Inconsolata:400"
           rel="stylesheet"/>
     <!--<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'/>               -->
-    <link href="css/impress-demo.css" rel="stylesheet"/>
+    <link href="css/impress.css" rel="stylesheet"/>
     <link rel="shortcut icon" href="favicon.png"/>
 
 </head>
 <body class="impress-not-supported">
 <div id="impress">
-    <div id="title" class="step" data-x="-1500" data-y="-1600">
+    <div id="overview" class="step" data-scale="6"></div>
+    <div id="title" class="step" data-x="-2500" data-y="-2000">
         <h1>CSS Selectors</h1>
     </div>
-    <div id="intro" class="step slide" data-x="-1500" data-y="-800">
+    <div id="intro" class="step slide" data-x="-1500" data-y="-2000">
         <q>CSS Selectors are all about finding either a group of elements, or a single element</q>
     </div>
-    <div id="basic1" class="step slide" data-x="-500" data-y="-800">
+    <div id="basic1" class="step slide" data-x="-500" data-y="-2000">
         <q>There are 4 basic types of selectors:</q>
         <ul>
             <li>The Universal Selector (*)</li>
@@ -29,14 +30,14 @@
             <li>And the ID selector (#identifier)</li>
         </ul>
     </div>
-    <div id="multiselect" class="step slide" data-x="500" data-y="-800">
+    <div id="multiselect" class="step slide" data-x="500" data-y="-2000">
         <q>A single selector can match multiple elements</q>
     </div>
-    <div id="multiselect-example" class="step slide" data-x="1500" data-y="-800">
+    <div id="multiselect-example" class="step slide" data-x="1500" data-y="-2000">
         <h2>Selecting multiple elements</h2>
         <p>Selector:</p>
         <code>
-            <span class="color1">.className</span>
+            <span class="color1">.myClass</span>
         </code>
         <p>HTML:</p>
         <code>
@@ -49,10 +50,10 @@
             <div>&hellip;</div>
         </code>
     </div>
-    <div id="basic2" class="step slide" data-x="-1500" data-y="0">
+    <div id="basic2" class="step slide" data-x="2500" data-y="-2000">
         <q>You can combine these basic selectors into a single selector</q>
     </div>
-    <div id="combining" class="step slide" data-x="-500" data-y="0">
+    <div id="combining" class="step slide" data-x="-2500" data-y="-1200">
         <h2>Combining selectors</h2>
         <p>Selector:</p>
         <code>
@@ -69,10 +70,10 @@
             <div>&hellip;</div>
         </code>
     </div>
-    <div id="specificity" class="step slide" data-x="500" data-y="0">
+    <div id="specificity" class="step slide" data-x="-1500" data-y="-1200">
         <q>However, be careful not to be add too much to your selector</q>
     </div>
-    <div id="specifivity2" class="step slide" data-x="1500" data-y="0">
+    <div id="specificity2" class="step slide" data-x="-500" data-y="-1200">
         <h2>Both these selectors will match the same element because there can only be 1 id of myId in a document</h2>
         <p>Selectors:</p>
         <code>
@@ -90,7 +91,149 @@
             <div>&hellip;</div>
         </code>
     </div>
-    <div id="overview" class="step" data-scale="5"></div>
+    <div id="grouping1" class="step slide" data-x="500" data-y="-1200">
+        <q>Grouping these selectors lets you specify where your target is in the HTML tree</q>
+    </div>
+    <div id="grouping2" class="step slide" data-x="1500" data-y="-1200">
+        <q>There are 3 main ways to group selectors</q>
+    </div>
+    <div id="group1" class="step slide" data-x="2500" data-y="-1200">
+        <h2>1. Separated by spaces</h2>
+        <p>2 selectors separated by a space means the second selector is anywhere inside the first selector</p>
+        <p>Selector:</p>
+        <code>
+            <div><span class="color2">#myId</span> <span class="color1">.myClass</span></div>
+        </code>
+        <p>HTML</p>
+        <code>
+            <div>&hellip;</div>
+            <div><span class="color2">&lt;div id="myId"&gt;</span></div>
+            <div>&nbsp;&nbsp;&lt;div class="notMyClass"&gt;</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="color1">&lt;div class="myClass"&gt;[content]&lt;/div&gt;</span></div>
+            <div>&nbsp;&nbsp;&lt;/div&gt;</div>
+            <div>&nbsp;&nbsp;<span class="color1">&lt;div class="myClass"&gt;[content]&lt;/div&gt;</span></div>
+            <div>&nbsp;&nbsp;&lt;div class="myClass"&gt;[content]&lt;/div&gt;</div>
+            <div><span class="color2">&lt;/div&gt;</span></div>
+            <div>&hellip;</div>
+        </code>
+    </div>
+    <div id="group2" class="step slide" data-x="-2500" data-y="-400">
+        <h2>2. Separated by greater-than sign (>)</h2>
+        <p>2 selectors separated by a greater-than means the second selector is a direct child of the first selector</p>
+        <p>Selector:</p>
+        <code>
+            <div><span class="color2">#myId</span> > <span class="color1">.myClass</span></div>
+        </code>
+        <p>HTML</p>
+        <code>
+            <div>&hellip;</div>
+            <div><span class="color2">&lt;div id="myId"&gt;</span></div>
+            <div>&nbsp;&nbsp;&lt;div class="notMyClass"&gt;</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="myClass"&gt;[content]&lt;/div&gt;</div>
+            <div>&nbsp;&nbsp;&lt;/div&gt;</div>
+            <div>&nbsp;&nbsp;<span class="color1">&lt;div class="myClass"&gt;[content]&lt;/div&gt;</span></div>
+            <div>&nbsp;&nbsp;&lt;div class="myClass"&gt;[content]&lt;/div&gt;</div>
+            <div><span class="color2">&lt;/div&gt;</span></div>
+            <div>&hellip;</div>
+        </code>
+    </div>
+    <div id="group3" class="step slide" data-x="-1500" data-y="-400">
+        <h2>3. Separated plus sign (+)</h2>
+        <p>2 selectors separated by a plus sign means the second selector is sibling of the first selector and the
+            second selector immediately follows the first.</p>
+        <p>Selector:</p>
+        <code>
+            <div><span class="color2">#myId</span> + <span class="color1">.myClass</span></div>
+        </code>
+        <p>HTML</p>
+        <code>
+            <div>&hellip;</div>
+            <div>&lt;div&gt;</div>
+            <div>&nbsp;&nbsp;<span class="color2">&lt;div id="myId"&gt;</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="myClass"&gt;[content]&lt;/div&gt;</div>
+            <div>&nbsp;&nbsp;<span class="color2">&lt;/div&gt;</span></div>
+            <div>&nbsp;&nbsp;<span class="color1">&lt;div class="myClass"&gt;[content]&lt;/div&gt;</span></div>
+            <div>&nbsp;&nbsp;&lt;div class="myClass"&gt;[content]&lt;/div&gt;</div>
+            <div>&lt;/div&gt;</div>
+            <div>&hellip;</div>
+        </code>
+    </div>
+    <div id="attributes1" class="step slide" data-x="-500" data-y="-400">
+        <q>You can also select elements based on attributes.</q>
+        <q>There are 4 different ways to select based on attributes.</q>
+    </div>
+    <div id="attributes2" class="step slide" data-x="500" data-y="-400">
+        <q>Attributes are denoted by square brackets.</q>
+    </div>
+    <div id="att1" class="step slide" data-x="1500" data-y="-400">
+        <h2>1. The attribute exists</h2>
+        <p>Selector:</p>
+        <code>
+            <div><span class="color1">a[title]</span></div>
+        </code>
+        <p>HTML</p>
+        <code>
+            <div>&hellip;</div>
+            <div>&nbsp;&lt;div&gt;<span class="color1">&lt;a href="http://www.google.com" title="Search"&gt;Google&lt;/a&gt;</span>&lt;/div&gt;</div>
+            <div>&nbsp;&lt;div&gt;<span class="color1">&lt;a href="http://www.facebook.com" title="Social"&gt;Facebook&lt;/a&gt;</span>&lt;/div&gt;</div>
+            <div>&nbsp;&lt;div&gt;&lt;a href="http://www.yahoo.com"&gt;Yahoo&lt;/a&gt;&lt;/div&gt;</div>
+            <div>&hellip;</div>
+        </code>
+    </div>
+    <div id="att2" class="step slide" data-x="2500" data-y="-400">
+        <h2>2. The attribute value equals some term</h2>
+        <p>This is set by having the attribute name followed by the attribute value, inside of the square brackets</p>
+        <p>Selector:</p>
+        <code>
+            <div><span class="color1">a[title=Search]</span></div>
+        </code>
+        <p>HTML</p>
+        <code>
+            <div>&hellip;</div>
+            <div>&nbsp;&lt;div&gt;<span class="color1">&lt;a href="http://www.google.com" title="Search"&gt;Google&lt;/a&gt;</span>&lt;/div&gt;</div>
+            <div>&nbsp;&lt;div&gt;&lt;a href="http://www.facebook.com" title="Social"&gt;Facebook&lt;/a&gt;&lt;/div&gt;</div>
+            <div>&nbsp;&lt;div&gt;&lt;a href="http://www.yahoo.com"&gt;Yahoo&lt;/a&gt;&lt;/div&gt;</div>
+            <div>&hellip;</div>
+        </code>
+    </div>
+    <div id="att3" class="step slide" data-x="-2500" data-y="400">
+        <h2>3. The attribute contains some value</h2>
+        <p>This means that a <em>whitespace-separated list of values</em> contains the specified value</p>
+
+        <p>Selector:</p>
+        <code>
+            <div><span class="color1">a[title~=not]</span></div>
+        </code>
+        <p>HTML</p>
+        <code>
+            <div>&hellip;</div>
+            <div>&nbsp;&lt;div&gt;&lt;a href="http://www.google.com" title="This is cool"&gt;Google&lt;/a&gt;&lt;/div&gt;</div>
+            <div>&nbsp;&lt;div&gt;<span class="color1">&lt;a href="http://www.facebook.com" title="This is not cool"&gt;Facebook&lt;/a&gt;</span>&lt;/div&gt;</div>
+            <div>&nbsp;&lt;div&gt;&lt;a href="http://www.yahoo.com"&gt;Yahoo&lt;/a&gt;&lt;/div&gt;</div>
+            <div>&hellip;</div>
+        </code>
+    </div>
+    <div id="att4" class="step slide" data-x="-1500" data-y="400">
+        <h2>4. The attribute starts with the value followed by a dash (-)</h2>
+        <p>The only real use of this is when you want to select a the language part of a lang attribute</p>
+        <p>Selector:</p>
+        <code>
+            <div><span class="color1">a[lang|=en]</span></div>
+        </code>
+        <p>HTML</p>
+        <code>
+            <div>&hellip;</div>
+            <div>&nbsp;<span class="color1">&lt;div lang="en-gb"&gt;Hello&lt;/div&gt;</span></div>
+            <div>&nbsp;<span class="color1">&lt;div lang="en-au"&gt;G'day&lt;/div&gt;</span></div>
+            <div>&nbsp;<span class="color1">&lt;div lang="en-us"&gt;Howdy&lt;/div&gt;</span></div>
+            <div>&nbsp;&lt;div lang="fr-fr"&gt;Bonjour&lt;/div&gt;</div>
+            <div>&nbsp;&lt;div lang="fr-ca"&gt;Allo&lt;/div&gt;</div>
+            <div>&hellip;</div>
+        </code>
+    </div>
+    <div id="multiclasses" class="step slide" data-x="-500" data-y="400">
+        <q></q>
+    </div>
 </div>
 <script src="js/impress.js"></script>
 <script>impress().init();</script>

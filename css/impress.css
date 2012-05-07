@@ -714,6 +714,9 @@ ul li {
 .color1 {
     background: rgba(255,255,128, .8);
 }
+.color2 {
+    background: rgba(128,255,128,.8);
+}
 
 h2 { font: 28px/1em 'PT Serif'; margin: 0 0 1em;}
 
